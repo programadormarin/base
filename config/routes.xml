@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routing xmlns="http://lcobucci.com/action-mapper/schema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://lcobucci.com/action-mapper/schema ../lib/Lcobucci/ActionMapper2/Config/schema/routing.xsd ">
+	<routes>
+		<route pattern="/*" class="\HMARINJR\BaseProject\Application\Action\Home" />
+		<route pattern="/contact/*" class="\HMARINJR\BaseProject\Application\Action\Contact" />
+		<route pattern="/login/*" class="\HMARINJR\BaseProject\Application\Action\Login" />
+		<route pattern="/user/*" class="\HMARINJR\BaseProject\Application\Action\User" />
+	</routes>
+	<filters>
+		<filter pattern="/user/*" class="\HMARINJR\BaseProject\Application\Action\UserFilter" />
+	</filters>
+</routing>

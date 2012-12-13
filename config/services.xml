@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<container xmlns="http://symfony.com/schema/dic/services"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://symfony.com/schema/dic/services ../lib/Symfony/Component/DependencyInjection/Loader/schema/services-1.0.xsd">
+	<imports>
+		<import resource="environment.xml" />
+	</imports>
+	<services>
+		<!-- Application Services -->
+		<service id="authentication.service" class="hmarinjr\BaseProject\Application\Service\AuthenticationService">
+			<argument type="service" id="session" />
+			<argument type="service" id="user.management.service" />
+		</service>
+
+		<!-- Domain Services -->
+		<service id="user.management.service" class="hmarinjr\BaseProject\Domain\Service\UserManagementService">
+			<argument type="service" id="user.repository" />
+		</service>
+
+
+		<!-- Entity Repositories -->
+		<service id="user.repository" factory-service="entityManager" factory-method="getRepository">
+			<argument>hmarinjr\BaseProject\Domain\Entity\User</argument>
+		</service>
+	</services>
+</container>
