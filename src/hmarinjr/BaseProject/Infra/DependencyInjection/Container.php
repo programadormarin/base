@@ -70,12 +70,6 @@ class Container extends \Lcobucci\ActionMapper2\DependencyInjection\Container
      */
     public function getParameter($name)
     {
-        if ($name == 'twitter.callback') {
-            return $this->application->getRequest()->getUriForPath(
-                parent::getParameter($name)
-            );
-        }
-
         return parent::getParameter($name);
     }
 }

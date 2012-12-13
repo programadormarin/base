@@ -95,14 +95,6 @@ class Main extends UIComponent
     }
 
     /**
-     * @return \hmarinjr\BaseProject\Application\View\Sponsors
-     */
-    public function renderSponsors()
-    {
-        return new Sponsors();
-    }
-
-    /**
      * @return \hmarinjr\BaseProject\Application\View\Footer
      */
     public function renderFooter()
