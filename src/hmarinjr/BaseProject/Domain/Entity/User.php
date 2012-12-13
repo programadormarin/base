@@ -40,7 +40,8 @@ class User implements Entity
     private $creationTime;
 
     /**
-     * @OneToOne(targetEntity="People")
+     * @OneToOne(targetEntity="People", inversedBy="user")
+     * @JoinColumn(name="people_id", referencedColumnName="id")
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
     private $people;
@@ -247,20 +248,5 @@ class User implements Entity
         }
 
         return $user;
-    }
-
-    /**
-     * @param \stdClass $twitterData
-     * @return \hmarinjr\BaseProject\Domain\Entity\User
-     */
-    public static function createFromTwitterData(\stdClass $twitterData)
-    {
-        return static::create(
-            $twitterData->name,
-            $twitterData->screen_name,
-            null,
-            null,
-            !empty($twitterData->description) ? $twitterData->description : null
-        );
     }
 }

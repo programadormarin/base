@@ -22,7 +22,7 @@ class People implements Entity
     private $id;
 
      /**
-     * @OneToOne(targetEntity="User")
+     * @OneToOne(targetEntity="User", mappedBy="people")
      * @var \hmarinjr\BaseProject\Domain\Entity\User
      */
     private $user;
